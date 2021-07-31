@@ -1,0 +1,21 @@
+// Find greatest value in the list
+
+func findGreatestValueInTheList(list: [Int]) -> Int? {
+
+	if list.count == 0 {
+		return nil
+	}
+	
+	var greatestValue = -1
+  
+	for number in list {
+		if number > greatestValue {
+			greatestValue = number
+		}
+	}
+
+	return greatestValue
+}
+
+
+findGreatestValueInTheList(list: [3, 77, 6, -2, 6, 7, 10, 42, 5])
