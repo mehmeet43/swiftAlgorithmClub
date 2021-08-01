@@ -1,0 +1,20 @@
+// Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
+
+    func adjacentElementsProduct(inputArray: [Int]) -> Int {
+        
+        if inputArray.count < 2 {
+            return 0
+        }
+        
+        var maxProduct = inputArray[0] * inputArray[1]
+        
+        for i in 1..<(inputArray.count - 1) {
+            let temp = inputArray[i] * inputArray[i+1]
+            if temp > maxProduct {
+                maxProduct = temp
+            }
+        }
+        
+        return maxProduct
+        
+    }
