@@ -1,0 +1,40 @@
+// Given a sequence of integers as an array, determine whether it is possible 
+// to obtain a strictly increasing sequence by removing no more than one element from the array.
+
+// Note: sequence a0, a1, ..., an is considered to be a strictly increasing if a0 < a1 < ... < an. 
+// Sequence containing only one element is also considered to be strictly increasing.
+
+  func almostIncreasingSequence(sequence: [Int]) -> Bool {
+        
+        if isTotallyIncreasing(a: sequence) {
+              return true
+          }
+        
+        var a = sequence, r = [Int]()
+            for i in 0..<(a.count-1) {
+                if a[i] >= a[i+1] {
+                    r += [i, i+1]
+                }
+            }
+            
+            for i in 0..<r.count {
+                a = sequence
+                a.remove(at: r[i])
+                if isTotallyIncreasing(a: a) {
+                    return true
+                }
+            }
+            return false
+        
+        
+    }
+    
+    func isTotallyIncreasing(a: [Int]) -> Bool {
+        for i in 0..<(a.count-1) {
+            if a[i] >= a[i+1] {
+                return false
+            }
+        }
+        return true
+    }
+ 
