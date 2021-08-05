@@ -1,0 +1,21 @@
+// Given an array of strings, return another array containing all of its longest strings.
+
+func allLongestStrings(inputArray: [String]) -> [String] {
+
+        var outputArray = [String]()
+        var longestStringCount = 0
+        
+        for i in 0..<(inputArray.count) {
+            if inputArray[i].count > longestStringCount {
+                longestStringCount = inputArray[i].count
+            }
+        }
+        
+        for i in 0..<(inputArray.count) {
+            if inputArray[i].count == longestStringCount {
+                outputArray.append(inputArray[i])
+            }
+        }
+        
+        return outputArray
+}
