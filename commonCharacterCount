@@ -1,2 +1,16 @@
 // Given two strings, find the number of common characters between them.
 
+    func commonCharacterCount(s1: String, s2: String) -> Int {
+        
+        var commonCharacters = 0, temps1 = Array(s1.utf8), temps2 = Array(s2.utf8)
+        
+        for i in 0..<temps1.count {
+            if let k = temps2.firstIndex(of: temps1[i]) {
+                commonCharacters += 1
+                temps2.remove(at: k)
+            }
+        }
+        
+        return commonCharacters
+        
+    }
