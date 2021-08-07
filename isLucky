@@ -3,6 +3,7 @@
 
 // Given a ticket number n, determine if it's lucky or not.
 
+// first solution
     func isLucky(n: Int) -> Bool {
 
         let nString = String(n).map { Int("\($0)")! }
@@ -19,6 +20,17 @@
             firstPart += nString[indexOfFirstPart]
             secondPart += nString[indexOfSecondPart]
         }
+        
+        return firstPart == secondPart
+    }
+
+// better solution
+
+   func isLuckyV2(n: Int) -> Bool {
+        let nString = String(n).map { Int("\($0)")! }
+        let iteration = nString.count / 2
+        let firstPart = nString[0..<iteration].reduce(0, +)
+        let secondPart = nString[iteration..<2*iteration].reduce(0, +)
         
         return firstPart == secondPart
     }
