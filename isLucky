@@ -2,3 +2,23 @@
 // A ticket number is considered lucky if the sum of the first half of the digits is equal to the sum of the second half.
 
 // Given a ticket number n, determine if it's lucky or not.
+
+    func isLucky(n: Int) -> Bool {
+
+        let nString = String(n).map { Int("\($0)")! }
+        var firstPart = 0, secondPart = 0
+        
+        if nString.count % 2 != 0 {
+            return false
+        }
+        
+        for i in 0..<nString.count / 2 {
+            let indexOfFirstPart = nString.index(nString.startIndex, offsetBy: i)
+            let indexOfSecondPart = nString.index(nString.startIndex, offsetBy: nString.count - (i+1))
+            
+            firstPart += nString[indexOfFirstPart]
+            secondPart += nString[indexOfSecondPart]
+        }
+        
+        return firstPart == secondPart
+    }
