@@ -1,4 +1,4 @@
-// Find greatest value in the list
+// Find greatest value in the list..
 
 func findGreatestValueInTheList(list: [Int]) -> Int? {
 
