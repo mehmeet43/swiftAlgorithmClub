@@ -1,4 +1,4 @@
-// Given two strings, find the number of common characters between them.
+// Given two strings, find the number of common characters between them..
 
     func commonCharacterCount(s1: String, s2: String) -> Int {
         
